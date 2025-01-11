@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!-- Estilos y Scripts de DataTables -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+
+<div class="container-fluid">
+
+    <!-- Barra de usuario y sesión -->
+    <div class="row mt-3 sticky-top">
+        <div class="col">
+            <div class="card border border-dark">
+                <div class="card-body">
+                    <span><b>Usuario: {{ session.usuario }} - Rol: {{ session.rol }}</b></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="row mt-3">
+        <!-- Barra lateral de opciones -->
+        <div class="col-12 col-lg-3 mb-3">
+            <div class="card border border-dark sticky-top" style="top: 10%;">
+
+                <div class="card-header">
+                    <h5 class="text-center"><b>Opciones</b></h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link active" id="v-pills-users-tab" data-bs-toggle="pill" data-bs-target="#v-pills-users" type="button" role="tab" aria-controls="v-pills-users" aria-selected="true">Usuarios</button>
+                        <button class="nav-link" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders" type="button" role="tab" aria-controls="v-pills-orders" aria-selected="false">Pedidos</button>
+                        <button class="nav-link" id="v-pills-products-tab" data-bs-toggle="pill" data-bs-target="#v-pills-products" type="button" role="tab" aria-controls="v-pills-products" aria-selected="false">Productos</button>
+                        <button class="nav-link" id="v-pills-reports-tab" data-bs-toggle="pill" data-bs-target="#v-pills-reports" type="button" role="tab" aria-controls="v-pills-reports" aria-selected="false">Reportes</button>
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-center">
+                    <a class="btn btn-danger btn-block" href="/salir">Cerrar Sesión</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Panel principal -->
+        <div class="col-12 col-lg-9 mb-3">
+            <div class="card border border-dark">
+
+                <div class="card-header">
+                    <h5 class="text-center"><b>Gestión de Ropa a Medida</b></h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <!-- Gestión de usuarios -->
+                        <div class="tab-pane fade show active" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
+                            {% include 'views/tabs/users.html' %}
+                        </div>
+
+                        <!-- Gestión de pedidos -->
+                        <div class="tab-pane fade" id="v-pills-orders" role="tabpanel" aria-labelledby="v-pills-orders-tab">
+                            {% include 'views/tabs/orders.html' %}
+                        </div>
+
+                        <!-- Gestión de productos -->
+                        <div class="tab-pane fade" id="v-pills-products" role="tabpanel" aria-labelledby="v-pills-products-tab">
+                            {% include 'views/tabs/products.html' %}
+                        </div>
+
+                        <!-- Reportes -->
+                        <div class="tab-pane fade" id="v-pills-reports" role="tabpanel" aria-labelledby="v-pills-reports-tab">
+                            {% include 'views/tabs/reports.html' %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer text-center">
+                    <small>Sistema de Gestión de Ropa a Medida - Lucero Alta Costura</small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

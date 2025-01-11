@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Lucero Alta Costura</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#productos">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#personalizacion">Personalización</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/usuarios_login">Iniciar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron text-white text-center" style="background-color: #4f2ee4; padding: 150px 0;">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Bienvenidos a Lucero Alta Costura</h1>
+            <p class="lead mb-4">Elegancia y estilo en cada prenda diseñada a tu medida.</p>
+            <a href="#productos" class="btn btn-primary btn-lg rounded-pill shadow-sm px-4 py-2">Explorar Colección</a>
+        </div>
+    </div>
+
+    <!-- Productos -->
+    <div class="container my-5" id="productos">
+        <h2 class="text-center mb-4 text-primary">Nuestros Productos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-lg border-light rounded-4">
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename='img/saco_de_mujer1.png') }}" alt="Saco de Mujer">
+                        <img src="{{ url_for('static', filename='img/saco_de_mujer2.png') }}" alt="Saco de Mujer 2">
+                        <img src="{{ url_for('static', filename='img/saco_de_mujer3.png') }}" alt="Saco de Mujer 3">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Saco de Mujer</h5>
+                        <p class="card-text text-muted">Elegancia y estilo para cualquier ocasión.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Agrega más productos similares aquí -->
+        </div>
+    </div>
+
+    <!-- Personalización -->
+    <div class="container my-5" id="personalizacion">
+        <h2 class="text-center mb-4 text-primary">Personaliza tu Ropa</h2>
+        <p class="text-center text-muted">Ingresa tus medidas y preferencias para crear ropa diseñada especialmente para ti.</p>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico" required>
+            </div>
+            <div class="col-md-4">
+                <label for="altura" class="form-label">Altura (cm)</label>
+                <input type="number" class="form-control" id="altura" placeholder="Ejemplo: 170" required>
+            </div>
+            <div class="col-md-4">
+                <label for="pecho" class="form-label">Medida del Pecho (cm)</label>
+                <input type="number" class="form-control" id="pecho" placeholder="Ejemplo: 90" required>
+            </div>
+            <div class="col-md-4">
+                <label for="cintura" class="form-label">Medida de la Cintura (cm)</label>
+                <input type="number" class="form-control" id="cintura" placeholder="Ejemplo: 70" required>
+            </div>
+            <div class="col-12">
+                <label for="preferencias" class="form-label">Preferencias</label>
+                <textarea class="form-control" id="preferencias" rows="3" placeholder="Describe tu estilo o necesidades específicas"></textarea>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Testimonios -->
+    <div class="container my-5" id="testimonios">
+        <h2 class="text-center mb-4 text-primary">Testimonios</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-lg border-light rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Gabriela L.</h5>
+                        <p class="card-text">"El saco supera todas mis expectativas. Trabajo impecable."</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Más testimonios -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Lucero Alta Costura. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+{% endblock %}
+
